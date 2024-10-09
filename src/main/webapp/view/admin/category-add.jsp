@@ -5,9 +5,8 @@
     <label for="fname">Category name:</label><br>
     <input type="text" id="categoryname" name="categoryname"><br>
     <label for="lname">Image:</label><br>
-    <img height="150" width="200" src="" id="imagess" /><br>
-    <input type="file" onchange="chooseFile(this)" id="images" name="image"><br>
-    
+    <img height="150" width="200" src="" id="image" /><br>
+    <input type="file" onchange="chooseFile(this)" id="image" name="image"><br>
     <p>Status:</p>
     <input type="radio" id="ston" name="status" value="1" checked>
     <label for="html">Đang hoạt động</label><br>

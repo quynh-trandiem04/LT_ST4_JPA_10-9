@@ -3,7 +3,7 @@
 xmlns="https://jakarta.ee/xml/ns/jakartaee" 
 xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd" 
 version="6.0">
-  <display-name>maven-sample</display-name>
+  <display-name>Template_LTWeb</display-name>
   <welcome-file-list>
     <welcome-file>diemquynh.jsp</welcome-file>
   </welcome-file-list>
