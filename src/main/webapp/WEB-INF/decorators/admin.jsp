@@ -74,22 +74,32 @@
 
 <!-- BEGIN CONTENT -->
 <body>
-    <sitemesh:write property="body"/>
-    <script src="${URL}assets/global/plugins/jquery.min.js" type="text/javascript"></script>
-    <script>
-        function chooseFile(fileInput) {
-            if (fileInput.files && fileInput.files[0]) {
-                var reader = new FileReader();
-                reader.onload = function(e) {
-                    $('#images').attr('src', e.target.result);
-                }
-                reader.readAsDataURL(fileInput.files[0]);
-            }
-        }
-    </script>
+	<sitemesh:write property="body" />
+	<script src="${URL}assets/global/plugins/jquery.min.js"
+		type="text/javascript"></script>
+	<script>
+	function chooseFile(fileInput) {
+	    console.log("chooseFile function called");
 
-    <input type="file" onchange="chooseFile(this)">
-    <img id="images" src="" alt="Preview image" width="150" height="150">
+	    if (fileInput.files && fileInput.files[0]) {
+	        console.log("File selected:", fileInput.files[0]); 
+
+	        var reader = new FileReader();
+	        reader.onload = function(e) {
+	            console.log("FileReader onload triggered"); 
+	            console.log("File data URL:", e.target.result); 
+
+	            $('#image').attr('src', e.target.result);
+	        }
+	        reader.readAsDataURL(fileInput.files[0]);
+	    } else {
+	        console.log("No file selected or fileInput.files is not available");
+	    }
+
+	    console.log("jQuery is loaded");
+	}
+
+	</script>
 </body>
 <!-- END CONTENT -->
 

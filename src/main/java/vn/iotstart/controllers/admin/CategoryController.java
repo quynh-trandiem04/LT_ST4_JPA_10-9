@@ -4,7 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Paths;
 import java.util.List;
-import java.util.Locale.Category;
+
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.MultipartConfig;
@@ -16,6 +16,7 @@ import jakarta.servlet.http.Part;
 import vn.iotstart.models.CategoryModel;
 import vn.iotstart.service.ICategoryService;
 import vn.iotstart.service.impl.CategoryServiceImpl;
+import vn.iotstart.ultis.Constant;
 
 @MultipartConfig(fileSizeThreshold = 1024*1024,
 		maxFileSize=1024*1024*5, maxRequestSize=1024*1024*5*5)
@@ -54,7 +55,7 @@ public class CategoryController extends HttpServlet{
 		} else if (url.contains("delete")) {
 			String id = req.getParameter("id");
 			cateService.delete(Integer.parseInt(id));
-			resp.sendRedirect(req.getContentType()+"/admin/categories");
+			resp.sendRedirect(req.getContextPath() + "/admin/categories");
 		}
 	}
 	@Override
@@ -67,7 +68,7 @@ public class CategoryController extends HttpServlet{
 			String status = req.getParameter("status");
 			int statuss = Integer.parseInt(status);
 			String fname = "";
-			String uploadPath = vn.iotstart.ultis.Constant.UPLOAD_DIRECTORY;
+			String uploadPath = Constant.UPLOAD_DIRECTORY;
 			CategoryModel category = new CategoryModel();
 			category.setCategoryname(catagoryname);
 			category.setImages(fname);
@@ -105,7 +106,7 @@ public class CategoryController extends HttpServlet{
 			int statuss = Integer.parseInt(status);
 			
 			String fname = "";
-			String uploadPath = vn.iotstart.ultis.Constant.UPLOAD_DIRECTORY;
+			String uploadPath = Constant.UPLOAD_DIRECTORY;
 			CategoryModel category = new CategoryModel();
 			category.setCategoryid(categoryid);
 			category.setCategoryname(catagoryname);
